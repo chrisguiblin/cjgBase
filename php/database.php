@@ -3,14 +3,12 @@
 class database
 {	
 	function connect()
-	{
-		$this->host = "localhost";
-		$this->user = "admin";
-		$this->password = "cTwhqe!1894";
-		$this->database = "gooseberry";
+	{		
+		require_once("setup.php"); //Calls the setup file to set the custom setup parameters
 		
-		$this->db = new mysqli($this->host, $this->user, $this->password, $this->database);
-		if($this->db->connect_errno > 0)
+		$this->db = new mysqli($host, $user, $password, $database); //Create new connection
+		
+		if($this->db->connect_errno > 0) //On error...
 		{
 			die('Unable to connect to database [' . $db->connect_error . ']');
 		}
